@@ -1,0 +1,223 @@
+/*Imports*/
+@import 'fontClasses';
+@import 'styling';
+
+/*Variables*/
+$backgroundColor: linear-gradient(#272a6e, #7c98d9);
+$bodyColor: #000000;
+$buttonGap: 1vh;
+
+/*General settings*/
+body {
+  min-height: 100dvh;
+  background: $backgroundColor;
+  color: $bodyColor;
+  margin: 0;
+}
+
+/*Frame and container layout*/
+$frameWidth: 95vw;
+.frame {
+  width: $frameWidth;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(24, 1fr);
+}
+
+.container {
+  grid-column: 2 / 25;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+header, main {
+  grid-column: 2 / 25;
+}
+
+header {
+  height: calc(20vh - $buttonGap);
+}
+
+/*Dialog boxes*/
+.avatarLeft, .avatarLeftEnd, .avatarRight, .avatarRightEnd {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.avatarLeft {
+  grid-column: 1 / 2;  
+  grid-row: 1 / 2;
+}
+
+.avatarLeftEnd {
+  grid-column: 1 / 2;  
+  grid-row: 3 / 4;
+}
+
+.avatarRight {
+  grid-column: 2 / 3;  
+  grid-row: 1 / 2;
+}
+
+.avatarRightEnd {
+  grid-column: 2 / 3;  
+  grid-row: 3 / 4;
+}
+
+.dialog {
+  grid-column: 1 / 3;
+  grid-row: 2 / 3;
+  display: flex;
+  flex-direction: column;
+} 
+
+/*Edge menu*/
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 95%;
+  height: 100%;
+  margin: auto;
+  z-index: 1;
+}
+ 
+.overlay.active {
+  display: grid;
+  grid-template-columns: repeat(24, 1fr);
+}
+
+.content-section {
+  background-color: rgba(0, 0, 255, 0.8);
+  margin: 2%;
+  grid-column: 2 / 25;
+}
+
+/*Edge buttons*/
+#openOverlay {
+  top: calc(20vh - $buttonGap);
+  height: calc(60vh + ($buttonGap * 2));
+  left: calc((100vw - $frameWidth) / 2);
+  width: calc($frameWidth / 24); 
+}
+
+#nerdBlue {
+  top: calc(20vh - $buttonGap);
+  height: calc((100vh - 40vh) / 3);
+  left: calc((100vw - $frameWidth) / 2);
+  width: calc($frameWidth / 24); 
+}
+
+#nerdYellow {
+  top: 40vh;
+  height: calc((100vh - 40vh) / 3);
+  left: calc((100vw - $frameWidth) / 2);
+  width: calc($frameWidth / 24); 
+}
+
+#closeOverlay {
+  top: calc(60vh + $buttonGap);
+  height: calc((100vh - 40vh) / 3);
+  left: calc((100vw - $frameWidth) / 2);
+  width: calc($frameWidth / 24); 
+}
+
+/*Display classes*/
+.hidden, .content-section {
+  display: none;
+}
+
+.content-section.active {
+  display: block;
+}
+
+/*Media queries*/
+/*Small screens*/
+@media only screen and (min-width: 600px) {
+.frame {
+  width: 85%;
+}}
+
+/*Medium screens*/
+@media only screen and (min-width: 768px) {
+.frame {
+  width: 75%;
+}
+/*Edge menu*/
+.overlay {
+  width: 75%
+}
+
+#openOverlay {
+  left: calc((100vw - 75vw) / 2);
+  width: calc(75vw / 24);
+}}
+
+/*Large screens*/
+@media only screen and (min-width: 992px) {
+.frame {
+  width: 70%;
+}
+
+/*Dialog box*/
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+}
+
+.avatarLeft {
+  grid-column: 1 / 2;  
+  grid-row: 1 / 2;
+}
+
+.avatarLeftEnd {
+  grid-row: 2 / 3;
+}
+ 
+.avatarRight {
+  grid-column: 3 / 4;  
+  grid-row: 1 / 2;
+}
+
+.avatarRightEnd {
+  grid-column: 3 / 4;  
+  grid-row: 2 / 3;
+}
+
+.dialog {
+  grid-column: 2 / 3;
+  grid-row: 1 / 3;
+  display: flex;
+  flex-direction: column;
+}
+
+/*Edge menu*/
+$frameWidth: 70vw;
+.overlay {
+  width: $frameWidth;
+}
+
+#openOverlay {  
+  left: calc((100vw - $frameWidth) / 2);
+  width: calc($frameWidth / 24);
+}
+
+#nerdBlue {
+  height: calc((100vh - 40vh) / 3);
+  left: calc((100vw - $frameWidth) / 2);
+  width: calc($frameWidth / 24); 
+}
+
+#nerdYellow { 
+  left: calc((100vw - $frameWidth) / 2);
+  width: calc($frameWidth / 24); 
+}
+
+#closeOverlay {
+  left: calc((100vw - $frameWidth) / 2);
+  width: calc($frameWidth / 24); 
+}}
