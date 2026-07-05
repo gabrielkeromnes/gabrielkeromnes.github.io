@@ -1,0 +1,117 @@
+/*Variables*/
+$textColor: #002266;
+$accentColor: #fcffa2;
+
+/*Typography*/
+header h1 {
+  font-family: "Barlow", sans-serif;
+  font-weight: 600;
+  font-style: italic;
+  color: $accentColor;
+  text-align: center;
+}
+
+/*Dialog boxes*/
+.container {
+  padding: 0 2% 0 2%;
+  column-gap: 4%;
+}
+
+.dialog {
+  padding-top: 4%;
+}
+
+@media only screen and (min-width: 992px) {
+.dialog {
+  padding-top: 0;
+}} 
+
+.container p {
+  margin-top: 0;
+}
+
+p.sheYell {
+  font-family: "Barlow", sans-serif;
+  font-weight: 600;
+  font-style: italic;
+  color: $accentColor;
+  max-width: 90%;
+  width: fit-content;
+  padding: 2%;
+  border: 1px solid $textColor;
+  outline: 2px solid $accentColor;
+  border-radius: 15px;
+  background-color: rgba(252, 255, 162, 0.3);
+}
+
+p.com {
+  font-family: "Barlow", sans-serif;
+  font-weight: 600;
+  font-style: italic;
+  color: #ffccd2;
+  width: fit-content;
+  padding: 2%;
+  max-width: 90%;
+  align-self: flex-end;
+  text-align: right;
+  border: 1px solid $textColor;
+  outline: 2px solid #d66676;
+  border-radius: 15px;
+  background-color: rgba(214, 102, 118, 0.4);
+}
+
+img.avatarLeft, img.avatarLeftEnd, img.avatarRight, img.avatarRightEnd {
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+img.avatarLeft, img.avatarLeftEnd {
+  border: 2px solid $accentColor; 
+}
+
+img.avatarRight, img.avatarRightEnd {
+  border: 2px solid #d66676; 
+}
+/*Edge buttons*/
+#openOverlay, #nerdBlue {
+  background-color: #859de5;
+}
+
+#nerdYellow {
+  background-color: rgba(252, 255, 162, 0.5);
+}
+
+#closeOverlay {
+  background-color: rgba(214, 102, 118, 0.5);
+}
+
+#openOverlay, #nerdBlue, #nerdYellow, #closeOverlay {
+  position: fixed;
+  border: none;
+  border-radius: 15px;
+}
+/*Main content formating*/
+main {
+  font-family: "Barlow", sans-serif;
+  font-weight: 400;
+  font-style: normal; 
+  padding: 0 2% 0 2%;
+
+  h1, h2 {
+    letter-spacing: 1px;
+  }
+
+   p {
+    letter-spacing: 1px;
+  }
+  
+  a {
+    color: $accentColor;
+  }
+
+  pre {
+  background-color: rgba(252, 255, 162, 0.3);
+  padding: 2%;
+  color: $accentColor;
+  overflow-x: auto;
+}}

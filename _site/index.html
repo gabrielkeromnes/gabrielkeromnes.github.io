@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title> - Tales of computing</title>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <!--Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="frame">
+<!--Title-->
+  <header>
+  </header>
+<!--Include the edge menu and the relative scripts-->
+<div class="edge-container">
+  <button id="openOverlay" class="edgeButton">
+  </button>
+</div>
+<div id="myOverlay" class="overlay">
+  <button id="nerdBlue" data-target="contentBlue"></button>
+  <button id="nerdYellow" data-target="contentYellow"></button>
+  <button id="closeOverlay" class="buttons"></button>
+
+  <nav id="contentBlue" class="content-section">
+    <p>Nerd blue content</p>
+  </nav>
+
+  <nav id="contentYellow" class="content-section">
+    <p>Nerd yellow content</p>  
+  </nav>
+</div>
+
+<script>
+  const overlay = document.getElementById('myOverlay');
+  const openBtn = document.getElementById('openOverlay');
+  const closeBtn = document.getElementById('closeOverlay');
+  const targetButtons = document.querySelectorAll('[data-target]');
+  const allContent = document.querySelectorAll('.content-section');
+
+  function toggleOverlay() {
+    overlay.classList.toggle('active');
+  }
+
+  function toggleOpenButton() {
+    openBtn.classList.toggle('hidden');
+  }
+
+  function switchContent(targetId) {
+    allContent.forEach(div => {
+      div.classList.remove('active');
+    });
+    const targetDiv = document.getElementById(targetId);
+    if (targetDiv) {
+      targetDiv.classList.add('active');
+    }
+  }
+
+  openBtn.addEventListener('click', () => {
+    toggleOverlay();
+    toggleOpenButton();
+    switchContent('contentBlue');
+  });
+
+  targetButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.getAttribute('data-target');
+      switchContent(targetId);
+    });
+  });
+
+  closeBtn.addEventListener('click', () => {
+    toggleOverlay();
+    toggleOpenButton();
+    allContent.forEach(d => d.classList.remove('active'));
+  });
+</script>
+
+<!--Storytelling-->
+  <div class="container"><!--Images-->
+    <div class="dialog"><!--Dialogs-->
+    </div> 
+  </div>
+<!--Documentation-->
+  <main class="text">
+  </main>
+</div>
+
+  </body>
+</html>

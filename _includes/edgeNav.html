@@ -1,0 +1,62 @@
+<div class="edge-container">
+  <button id="openOverlay" class="edgeButton">
+  </button>
+</div>
+<div id="myOverlay" class="overlay">
+  <button id="nerdBlue" data-target="contentBlue"></button>
+  <button id="nerdYellow" data-target="contentYellow"></button>
+  <button id="closeOverlay" class="buttons"></button>
+
+  <nav id="contentBlue" class="content-section">
+    <p>Nerd blue content</p>
+  </nav>
+
+  <nav id="contentYellow" class="content-section">
+    <p>Nerd yellow content</p>  
+  </nav>
+</div>
+
+<script>
+  const overlay = document.getElementById('myOverlay');
+  const openBtn = document.getElementById('openOverlay');
+  const closeBtn = document.getElementById('closeOverlay');
+  const targetButtons = document.querySelectorAll('[data-target]');
+  const allContent = document.querySelectorAll('.content-section');
+
+  function toggleOverlay() {
+    overlay.classList.toggle('active');
+  }
+
+  function toggleOpenButton() {
+    openBtn.classList.toggle('hidden');
+  }
+
+  function switchContent(targetId) {
+    allContent.forEach(div => {
+      div.classList.remove('active');
+    });
+    const targetDiv = document.getElementById(targetId);
+    if (targetDiv) {
+      targetDiv.classList.add('active');
+    }
+  }
+
+  openBtn.addEventListener('click', () => {
+    toggleOverlay();
+    toggleOpenButton();
+    switchContent('contentBlue');
+  });
+
+  targetButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.getAttribute('data-target');
+      switchContent(targetId);
+    });
+  });
+
+  closeBtn.addEventListener('click', () => {
+    toggleOverlay();
+    toggleOpenButton();
+    allContent.forEach(d => d.classList.remove('active'));
+  });
+</script>
