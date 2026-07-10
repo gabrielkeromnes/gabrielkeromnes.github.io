@@ -8,15 +8,38 @@
   <button id="closeOverlay" class="buttons"></button>
 
   <nav id="contentBlue" class="content-section">
-    <p>Nerd blue content</p>
+    <ul>
+    <h3>The awakening</h3>
+      <li>Live environment</li>
+      <li>Iso images and signature</li>
+      <li>Mirrors and repositories</li>
+    <h3>Upon the metal</h3>
+      <li>Bare metal and virtual machines</li>
+      <li>TTY, command line and shell</li>
+      <li>Core utilities</li>
+      <li>Configuration files</li>
+      <li>System clock, keyboard layout and region</li>
+    <h3>Cutting in the stone</h3>
+      <li>UEFI and legacy BIOS</li>
+      <li>Partitions, swap and subvolumes</li>
+      <li>File system and mounting points</li>
+      <li>Users, groups and priviledges</li>
+    <h3>Gathering the threads</h3>
+      <li>Packages and dependencies</li>
+      <li>Binaries and libraries</li>
+      <li>Compilation and processor architecture</li>
+    <h3>This is mine now</h3>
+      <li>Services and init system</li>
+      <li>Graphical server</li>
+    </ul>  
   </nav>
 
   <nav id="contentYellow" class="content-section">
-    <p>Nerd yellow content</p>  
   </nav>
 </div>
 
 <script>
+  const body = document.body;
   const overlay = document.getElementById('myOverlay');
   const openBtn = document.getElementById('openOverlay');
   const closeBtn = document.getElementById('closeOverlay');
@@ -25,6 +48,7 @@
 
   function toggleOverlay() {
     overlay.classList.toggle('active');
+    body.classList.toggle('menu-open');
   }
 
   function toggleOpenButton() {
