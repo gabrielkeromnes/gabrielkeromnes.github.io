@@ -1,0 +1,86 @@
+<div class="edge-container">
+  <button id="openOverlay" class="edgeButton">
+  </button>
+</div>
+<div id="myOverlay" class="overlay">
+  <button id="nerdBlue" data-target="contentBlue"></button>
+  <button id="nerdYellow" data-target="contentYellow"></button>
+  <button id="closeOverlay" class="buttons"></button>
+
+  <nav id="contentBlue" class="content-section">
+    <ul>
+    <h3>The awakening</h3>
+      <li>Live environment</li>
+      <li>Iso images and signature</li>
+      <li>Mirrors and repositories</li>
+    <h3>Upon the metal</h3>
+      <li>Bare metal and virtual machines</li>
+      <li>TTY, command line and shell</li>
+      <li>Core utilities</li>
+      <li>Configuration files</li>
+      <li>System clock, keyboard layout and region</li>
+    <h3>Cutting in the stone</h3>
+      <li>UEFI and legacy BIOS</li>
+      <li>Partitions, swap and subvolumes</li>
+      <li>File system and mounting points</li>
+      <li>Users, groups and priviledges</li>
+    <h3>Gathering the threads</h3>
+      <li>Packages and dependencies</li>
+      <li>Binaries and libraries</li>
+      <li>Compilation and processor architecture</li>
+    <h3>This is mine now</h3>
+      <li>Services and init system</li>
+      <li>Graphical server</li>
+    </ul>  
+  </nav>
+
+  <nav id="contentYellow" class="content-section">
+  </nav>
+</div>
+
+<script>
+  const body = document.body;
+  const overlay = document.getElementById('myOverlay');
+  const openBtn = document.getElementById('openOverlay');
+  const closeBtn = document.getElementById('closeOverlay');
+  const targetButtons = document.querySelectorAll('[data-target]');
+  const allContent = document.querySelectorAll('.content-section');
+
+  function toggleOverlay() {
+    overlay.classList.toggle('active');
+    body.classList.toggle('menu-open');
+  }
+
+  function toggleOpenButton() {
+    openBtn.classList.toggle('hidden');
+  }
+
+  function switchContent(targetId) {
+    allContent.forEach(div => {
+      div.classList.remove('active');
+    });
+    const targetDiv = document.getElementById(targetId);
+    if (targetDiv) {
+      targetDiv.classList.add('active');
+    }
+  }
+
+  openBtn.addEventListener('click', () => {
+    toggleOverlay();
+    toggleOpenButton();
+    switchContent('contentBlue');
+  });
+
+  targetButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.getAttribute('data-target');
+      switchContent(targetId);
+    });
+  });
+
+  closeBtn.addEventListener('click', () => {
+    toggleOverlay();
+    toggleOpenButton();
+    allContent.forEach(d => d.classList.remove('active'));
+  });
+</script>
