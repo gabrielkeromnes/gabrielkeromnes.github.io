@@ -68,7 +68,7 @@ header {
   grid-row: 3 / 4;
 }
 
-.dialog {
+.dialogs {
   grid-column: 1 / 3;
   grid-row: 2 / 3;
   display: flex;
@@ -208,7 +208,7 @@ body.menu-open {
   grid-row: 2 / 3;
 }
 
-.dialog {
+.dialogs {
   grid-column: 2 / 3;
   grid-row: 1 / 3;
   display: flex;

@@ -19,6 +19,13 @@ jobs:
       - name: Checkout main repository
         uses: actions/checkout@v4.1.2
 
+      - name: Clone private repository
+        uses: actions/checkout@v4.1.2
+        with:
+          repository: gabrielkeromnes/tales-of-computing-scenes
+          token: ${{ secrets.REACH_PRIVATE_REPOSITORY }}
+          path: _includes/dialogs
+
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1.175.0
         with:
