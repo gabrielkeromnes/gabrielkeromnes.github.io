@@ -1,4 +1,4 @@
-{% assign current_page_data = site.data.pages | where: "id", page.page_id | first %}
+{% include liquid-data-pages.html %}
 
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
