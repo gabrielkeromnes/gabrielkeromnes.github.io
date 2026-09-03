@@ -3,17 +3,8 @@ layout: default
 page_id: A4S1
 permalink: /hello-void
 ---
-{% include liquid-data-pages.html %}
-<div class="frame">
-<!--Title-->
-  <header>
-    <h1>{{ current_page_data.title }}</h1>
-  </header>
-<!--Include the edge menu and the relative scripts-->
-{% include edgeNav.html %}
-<!--Act-->
-  <div class="container">
-    <div class="dialogs">
-      {% include dialogs/A4S1-hello-void.html %}
-    </div>
+<div class="container">
+  <div class="dialogs">
+    {% include dialogs/A4S1-hello-void.html %}
   </div>
+</div>
