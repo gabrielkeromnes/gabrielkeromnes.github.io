@@ -9,15 +9,31 @@
 
   <nav id="contentBlue" class="content-section">
     <ul>
-      {% for entry in site.data.pages %}
-        <li class="{% if entry.id == page.page_id %}active{% endif %}">
-          <a href="{{ entry.url }}">{{ entry.title }}</a>
+      {% for item in site.data.pages %}
+        <li class="{% if item.id == page.page_id %}active{% endif %}">
+          <a href="{{ item.url }}">{{ item.title }}</a>
         </li>
       {% endfor %}
     </ul>  
   </nav>
 
   <nav id="contentYellow" class="content-section">
+    <ul>
+      {% for pair in site.data.resources %}
+        {% assign key = pair[0] %}
+        {% assign value = pair[1] %}
+        <li>
+          <a href="{{ key | slugify }}">{{ key }}</a>
+          <ul>
+            {% for item in value.entries %}
+              <li>
+                <a href="{{ value.page }}#{{ item.name | slugify }}">{{ item.name }}</a>
+              </li>
+            {% endfor %}
+           </ul>
+        </li>
+      {% endfor %}
+    </ul>
   </nav>
 </div>
 
