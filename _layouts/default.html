@@ -16,13 +16,23 @@
   </head>
   <body>
 {% include liquid-data-pages.html %}
-<div class="frame">
+    <div class="frame">
 <!--Title-->
-  <header>
-    <h1>{{ current_page_data.title }}</h1>
-  </header>
+      <header>
+        <h1>{{ current_page_data.title }}</h1>
+      </header>
 <!--Include the edge menu and the relative scripts-->
-{% include edgeNav.html %}
-    {{ content }}
+      {% include edgeNav.html %}
+<!--Include the content from the page-->
+      {{ content }}
+      <main>
+        {% for item in site.data.resources[page.id].entries %}
+          <div id="{{ item.name | slugify }}">
+            {% assign file = site.resources | where: "name", item.name | first %}
+            {{ file.content }}
+          </div>
+        {% endfor %}
+      </main>
+    </div>
   </body>
 </html>

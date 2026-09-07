@@ -1,3 +1,7 @@
 url: ""
 baseurl: ""
 title: "Tales of computing"
+
+collections:
+  resources:
+    output: false
