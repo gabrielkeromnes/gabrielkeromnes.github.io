@@ -5,3 +5,5 @@ title: "Tales of computing"
 collections:
   resources:
     output: false
+  scenes:
+    output: false

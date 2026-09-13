@@ -19,12 +19,23 @@ jobs:
       - name: Checkout main repository
         uses: actions/checkout@v4.1.2
 
-      - name: Clone private repository
+      - name: Checkout private repository scenes
         uses: actions/checkout@v4.1.2
         with:
           repository: gabrielkeromnes/tales-of-computing-scenes
           token: ${{ secrets.REACH_PRIVATE_REPOSITORY }}
-          path: _includes/dialogs
+          path: ./_scenes
+
+      - name: Checkout private repository editorial
+        uses: actions/checkout@v4.1.2
+        with:
+          repository: gabrielkeromnes/tales-of-computing-editorial
+          token: ${{ secrets.REACH_PRIVATE_REPOSITORY }}
+          path: ./_resources
+
+      - name: Move yaml file in expected directory
+        run: |
+          mv _resources/resources.yml _data
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1.175.0
