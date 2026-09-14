@@ -1,0 +1,42 @@
+<div class="edge-container">
+  <button id="openOverlay" class="edgeButton">
+  </button>
+</div>
+<div id="myOverlay" class="overlay">
+  <button id="nerdBlue" data-target="contentBlue"></button>
+  <button id="nerdYellow" data-target="contentYellow"></button>
+  <button id="closeOverlay" class="buttons"></button>
+
+  <nav id="contentBlue" class="content-section">
+    <ul>
+      {% for item in site.data.pages %}
+        <li class="{% if item.id == page.page_id %}active{% endif %}">
+          <a href="{{ item.url }}">{{ item.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>  
+  </nav>
+
+  <nav id="contentYellow" class="content-section">
+    <ul>
+      {% for pair in site.data.resources %}
+        {% assign key = pair[0] %}
+        {% assign value = pair[1] %}
+        <li>
+          <a href="{{ key | slugify }}">{{ key }}</a>
+          <ul>
+            {% for item in value.entries %}
+              <li>
+                <a href="{{ value.page }}#{{ item.name | slugify }}">{{ item.name }}</a>
+              </li>
+            {% endfor %}
+           </ul>
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+</div>
+
+<script>
+  {% include edge-nav.js %}
+</script>

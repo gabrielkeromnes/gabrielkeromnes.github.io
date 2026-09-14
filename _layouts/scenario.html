@@ -22,7 +22,7 @@
         <h1>{{ current_page_data.title }}</h1>
       </header>
 <!--Include the edge menu and the relative scripts-->
-      {% include edgeNav.html %}
+      {% include edge-nav.html %}
       <div class="container">
         <div class="dialogs">
           {% assign file = site.scenes | where_exp: 'item', 'item.page_id == page.page_id' | first %}

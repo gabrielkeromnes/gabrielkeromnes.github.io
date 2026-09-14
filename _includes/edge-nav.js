@@ -1,49 +1,10 @@
-<div class="edge-container">
-  <button id="openOverlay" class="edgeButton">
-  </button>
-</div>
-<div id="myOverlay" class="overlay">
-  <button id="nerdBlue" data-target="contentBlue"></button>
-  <button id="nerdYellow" data-target="contentYellow"></button>
-  <button id="closeOverlay" class="buttons"></button>
-
-  <nav id="contentBlue" class="content-section">
-    <ul>
-      {% for item in site.data.pages %}
-        <li class="{% if item.id == page.page_id %}active{% endif %}">
-          <a href="{{ item.url }}">{{ item.title }}</a>
-        </li>
-      {% endfor %}
-    </ul>  
-  </nav>
-
-  <nav id="contentYellow" class="content-section">
-    <ul>
-      {% for pair in site.data.resources %}
-        {% assign key = pair[0] %}
-        {% assign value = pair[1] %}
-        <li>
-          <a href="{{ key | slugify }}">{{ key }}</a>
-          <ul>
-            {% for item in value.entries %}
-              <li>
-                <a href="{{ value.page }}#{{ item.name | slugify }}">{{ item.name }}</a>
-              </li>
-            {% endfor %}
-           </ul>
-        </li>
-      {% endfor %}
-    </ul>
-  </nav>
-</div>
-
-<script>
   const body = document.body;
   const overlay = document.getElementById('myOverlay');
   const openBtn = document.getElementById('openOverlay');
   const closeBtn = document.getElementById('closeOverlay');
   const targetButtons = document.querySelectorAll('[data-target]');
   const allContent = document.querySelectorAll('.content-section');
+  const allMenuLinks = document.querySelectorAll('.content-section a');
 
   function toggleOverlay() {
     overlay.classList.toggle('active');
@@ -82,4 +43,13 @@
     toggleOpenButton();
     allContent.forEach(d => d.classList.remove('active'));
   });
-</script>
+
+  allMenuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      overlay.classList.remove('active');
+      body.classList.remove('menu-open');
+      openBtn.classList.remove('hidden');
+      allContent.forEach(div =>
+  div.classList.remove('active'));
+    });
+  });
