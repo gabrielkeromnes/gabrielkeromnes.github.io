@@ -34,6 +34,11 @@
           <!--Insert the scene html file corresponding to the current page-->
           {% assign file = site.scenes | where_exp: 'item', 'item.page_id == page.page_id' | first %}
           {{ file.content }}
+          <!--Previous page button-->
+          {% assign prev_idx = idx | minus: 1 %}
+          {% if prev_idx >= 0 %}
+            <a href="{{ site.data.pages[prev_idx].url }}">Previous</a>
+          {% endif %}
           <!--Next page button-->
           {% assign next_idx = idx | plus: 1 %}
           {% if site.data.pages[next_idx] %}
