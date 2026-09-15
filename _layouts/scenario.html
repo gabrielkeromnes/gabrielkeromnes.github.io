@@ -1,3 +1,4 @@
+<!--Set current page value from centralized data file -->
 {% include liquid-data-pages.html %}
 
 <!DOCTYPE html>
@@ -15,21 +16,33 @@
     <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   </head>
   <body>
-{% include liquid-data-pages.html %}
+    <!--Define the position in the array of the current page-->
+    {% for p in site.data.pages %}
+      {% if p.id == page.page_id %}
+        {% assign idx = forloop.index0 %}
+      {% endif %}
+    {% endfor %}
+    <!--Title-->
     <div class="frame">
-<!--Title-->
       <header>
         <h1>{{ current_page_data.title }}</h1>
       </header>
-<!--Include the edge menu and the relative scripts-->
+      <!--Include the edge menu and the relative scripts-->
       {% include edge-nav.html %}
       <div class="container">
         <div class="dialogs">
+          <!--Insert the scene html file corresponding to the current page-->
           {% assign file = site.scenes | where_exp: 'item', 'item.page_id == page.page_id' | first %}
           {{ file.content }}
+          <!--Next page button-->
+          {% assign next_idx = idx | plus: 1 %}
+          {% if site.data.pages[next_idx] %}
+            <a href="{{ site.data.pages[next_idx].url }}">Next</a>
+          {% endif %}
         </div>
       </div>     
-      {{ content }}
+        <!--Content written in the actual page-->
+        {{ content }}
     </div>
   </body>
 </html>

@@ -1,3 +1,4 @@
+<!--Set current page value from centralized data file -->
 {% include liquid-data-pages.html %}
 
 <!DOCTYPE html>
@@ -17,13 +18,13 @@
   <body>
 {% include liquid-data-pages.html %}
     <div class="frame">
-<!--Title-->
+      <!--Title-->
       <header>
         <h1>{{ current_page_data.title }}</h1>
       </header>
-<!--Include the edge menu and the relative scripts-->
+      <!--Include the edge menu and the relative scripts-->
       {% include edge-nav.html %}
-<!--Include the content from the page-->
+      <!--Include the content from the page-->
       {{ content }}
       <main>
         {% for item in site.data.resources[page.id].entries %}
