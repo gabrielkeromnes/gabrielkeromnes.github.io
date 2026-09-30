@@ -3,12 +3,27 @@ $textColor: #002266;
 $accentColor: #fcffa2;
 
 /*General formating*/
-header h1 {
-  font-family: "Barlow", sans-serif;
-  font-weight: 600;
-  font-style: italic;
-  color: $accentColor;
-  text-align: center;
+header {
+  h1 {
+    font-family: "IBM Plex Mono", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #bcced6;
+    text-shadow: 0 0 15px #9591bd;
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+  h2 {
+    font-family: "IBM Plex Mono", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 0.9rem;
+    color: #bcced6;
+    text-shadow: 0 0 15px #9591bd;
+    text-align: center;
+    margin-top: 0;
+  }
 }
 
 /*Dialog boxes*/
@@ -31,33 +46,36 @@ header h1 {
 }
 
 p.void {
-  font-family: "Barlow", sans-serif;
+  font-family: "IBM Plex Mono", sans-serif;
   font-weight: 600;
   font-style: italic;
+  font-size: 0.8rem;
   color: $accentColor;
-  max-width: 90%;
+  max-width: 75%;
   width: fit-content;
   padding: 2%;
   border: 1px solid $textColor;
-  outline: 2px solid $accentColor;
+  outline: 2px solid #cfd18c;
+  text-shadow: 0 0 10px #cfd18c;
   border-radius: 15px;
-  background-color: rgba(252, 255, 162, 0.3);
+  background-color: rgba(252, 255, 162, 0.2);
 }
 
 p.chaos {
-  font-family: "Barlow", sans-serif;
+  font-family: "IBM Plex Mono", sans-serif;
   font-weight: 600;
   font-style: italic;
-  color: #ffccd2;
+  font-size: 0.8rem;
+  color: #eedefc;
   width: fit-content;
   padding: 2%;
-  max-width: 90%;
+  max-width: 75%;
   align-self: flex-end;
-  text-align: right;
   border: 1px solid $textColor;
-  outline: 2px solid #d66676;
+  outline: 2px solid #d7c8e6;
+  text-shadow: 0 0 10px #d7c8e6;
   border-radius: 15px;
-  background-color: rgba(214, 102, 118, 0.4);
+  background-color: rgba(164, 130, 196, 0.7);
 }
 
 img.avatarLeft, img.avatarLeftEnd, img.avatarRight, img.avatarRightEnd {
@@ -72,9 +90,9 @@ img.avatarLeft, img.avatarLeftEnd {
 img.avatarRight, img.avatarRightEnd {
   border: 2px solid #d66676; 
 }
-/*Edge buttons*/
+/*Edge menu*/
 #openOverlay, #nerdBlue {
-  background-color: #859de5;
+  background-color: rgb(240, 250, 107);
 }
 
 #nerdYellow {
@@ -90,6 +108,42 @@ img.avatarRight, img.avatarRightEnd {
   border: none;
   border-radius: 15px;
 }
+
+nav {
+  ul {
+    font-family: "IBM Plex Mono", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 0.9rem;
+    text-shadow: 0 0 15px #9591bd;
+
+  }
+  li::marker {
+    content: "+-";
+    color: #e8f8ff;
+  }
+  li {
+    padding-left: 2%;
+  }
+  a {
+    color: #e8f8ff;
+  }
+}
+
+/*Buttons*/
+.previous, .next {
+  font-family: "IBM Plex Mono", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.8rem;
+  text-decoration: none;
+  color: black; 
+  width: 100%;
+  text-align: center;
+  background-color: rgba(195, 158, 255, 0.7);
+  border-radius: 9px;
+} 
+
 /*Main content formating*/
 main {
   font-family: "Barlow", sans-serif;
@@ -97,24 +151,41 @@ main {
   font-style: normal; 
   padding: 0 2% 0 2%;
 
-  h1, h2 {
-    letter-spacing: 1px;
-    color: $accentColor;
-    background-color: rgba(20, 20, 0, 0.4);
-    margin: none;
+  h1, h2{
+    font-family: "IBM Plex Mono", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #bcced6;
+    text-shadow: 0 0 15px #9591bd;
   }
 
-   p {
-    letter-spacing: 1px;
+  p {
+    font-family: "IBM Plex Mono", sans-serif;
+    font-weight: 500;
+    font-style: italic;
+    font-size: 0.8rem;
+    color: #e8f8ff;
   }
   
   a {
     color: $accentColor;
   }
  
+  code {
+    font-family: "IBM Plex Mono", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 0.8rem;
+    color: #f0fa6b;
+  }
+
   pre {
-    background-color: rgba(20, 20, 0, 0.4);
-    padding: 2%;
-    color: $accentColor;
+    padding: 3%;
+    border: 1px solid $textColor;
+    border-radius: 7px;
+    outline: 2px solid #bcced6;
+    text-shadow: 0 0 10px #cfd18c;
+    background-color: rgba(255, 255, 255, 0.3);
     overflow-x: auto;
-}}
+  }
+}
