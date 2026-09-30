@@ -3,7 +3,8 @@
 @import 'styling';
 
 /*Variables*/
-$backgroundColor: linear-gradient(#272a6e, #7c98d9);
+/*$backgroundColor: linear-gradient(#272442, #272442);*/
+$backgroundColor: linear-gradient(#9390ad, #9390ad);
 $bodyColor: #000000;
 
 :root {
@@ -31,6 +32,7 @@ body {
   grid-column: 2 / 25;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  margin-bottom: 10vh;
 }
 
 header, main {
@@ -73,6 +75,7 @@ header {
   grid-row: 2 / 3;
   display: flex;
   flex-direction: column;
+  margin-bottom: 10vh;
 } 
 
 /*Edge menu*/
@@ -87,18 +90,19 @@ header {
   height: 100%;
   margin: auto;
   z-index: 1;
+  backdrop-filter: blur(5px);
 }
  
 .overlay.active {
+  width: 95%;
   display: grid;
   grid-template-columns: repeat(24, 1fr);
   overflow-y: auto;
 }
 
 .content-section {
-  background-color: rgba(0, 0, 255, 0.8);
-  margin: 2%;
   grid-column: 2 / 25;
+  background-color: rgba(147, 144, 173, 0.5);
 }
 
 body.menu-open {
@@ -116,22 +120,33 @@ body.menu-open {
 #nerdBlue {
   top: calc(20vh - var(--buttonGap));
   height: calc((100vh - 40vh) / 3);
-  left: calc((100vw - var(--frameWidth)) / 2);
+  left: 0vw;
   width: calc(var(--frameWidth) / 24); 
 }
 
 #nerdYellow {
   top: 40vh;
   height: calc((100vh - 40vh) / 3);
-  left: calc((100vw - var(--frameWidth)) / 2);
+  left: 0vw;
   width: calc(var(--frameWidth) / 24); 
 }
 
 #closeOverlay {
   top: calc(60vh + var(--buttonGap));
   height: calc((100vh - 40vh) / 3);
-  left: calc((100vw - var(--frameWidth)) / 2);
+  left: 0vw;
   width: calc(var(--frameWidth) / 24); 
+}
+
+/*Buttons*/
+.previous {
+  grid-column: 1 / 2;
+  grid-row: 3 / 4; 
+}
+
+.next {
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
 }
 
 /*Display classes*/
@@ -152,7 +167,12 @@ body.menu-open {
 
 .frame {
   width: var(--frameWidth);
-}}
+}
+
+.overlay, .overlay.active {
+  width: var(--frameWidth);
+}
+}
 
 /*Medium screens*/
 @media only screen and (min-width: 768px) {
@@ -164,7 +184,7 @@ body.menu-open {
   width: var(--frameWidth);
 }
 /*Edge menu*/
-.overlay {
+.overlay, .overlay.active {
   width: var(--frameWidth);
 }
 
@@ -216,27 +236,39 @@ body.menu-open {
 }
 
 /*Edge menu*/
-.overlay {
+.overlay, .overlay.active {
   width: var(--frameWidth);
 }
 
 #openOverlay {  
   left: calc((100vw - var(--frameWidth)) / 2);
-  width: calc(var(--frameWidth) / 24);
+  width: calc(var(--frameWidth) / 48);
 }
 
 #nerdBlue {
   height: calc((100vh - 40vh) / 3);
-  left: calc((100vw - var(--frameWidth)) / 2);
-  width: calc(var(--frameWidth) / 24); 
+  left: 0vw;
+  width: calc(var(--frameWidth) / 48); 
 }
 
 #nerdYellow { 
-  left: calc((100vw - var(--frameWidth)) / 2);
-  width: calc(var(--frameWidth) / 24); 
+  left: 0vw;
+  width: calc(var(--frameWidth) / 48); 
 }
 
 #closeOverlay {
-  left: calc((100vw - 70vw) / 2);
-  width: calc(var(--frameWidth) / 24); 
-}}
+  left: 0vw;
+  width: calc(var(--frameWidth) / 48); 
+}
+
+/*Buttons*/
+.previous {
+  grid-column: 1 / 2;
+  grid-row: 3 / 4; 
+}
+
+.next {
+  grid-column: 3 / 4;
+  grid-row: 3 / 4;
+}
+}
