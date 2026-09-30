@@ -1,47 +1,59 @@
 - id: A1S1
+  index: "Act I: Scene 1"
   title: "All of my flaws"
   url: /all-of-my-flaws
 
 - id: A1S2
+  index: "Act I: Scene 2"
   title: "The threat beneath"
   url: /the-threat-beneath
 
 - id: A1S3
+  index: "Act I: Scene 3"
   title: "Where my will dwells"
   url: /where-my-will-dwells
 
 - id: A1S4
+  index: "Act I: Scene 4"
   title: "Tied existence"
   url: /tied-existence
 
 - id: A2S1
+  index: "Act II: Scene 1"
   title: "Left behind"
   url: /left-behind
 
 - id: A2S2
+  index: "Act II: Scene 2"
   title: "Reality unraveled"
   url: /reality-unraveled
 
 - id: A2S3
+  index: "Act II: Scene 3"
   title: "From the edge..."
   url: /from-the-edge
 
 - id: A3S1
+  index: "Act III: Scene 1"
   title: "... to the core"
   url: /to-the-core
 
 - id: A3S2
+  index: "Act III: Scene 2"
   title: "I can't feel"
   url: /i-cant-feel
 
 - id: A3S3
+  index: "Act III: Scene 3"
   title: "If I fail"
   url: /if-i-fail
 
 - id: A4S1
+  index: "Act IV: Scene 1"
   title: "Hello Void!"
   url: /hello-void
 
 - id: A4S2
+  index: "Act IV: Scene 2"
   title: "Together as one"
   url: /together-as-one
