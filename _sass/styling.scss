@@ -1,159 +1,130 @@
-/*Variables*/
-$textColor: #002266;
-$accentColor: #fcffa2;
-
-/*General formating*/
-header {
-  h1 {
-    font-family: "IBM Plex Mono", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    color: #bcced6;
-    text-shadow: 0 0 15px #9591bd;
-    text-align: center;
-    margin-bottom: 0;
+/*Titles*/
+h1, h2 {
+  font-family: "IBM Plex Mono", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #bcced6;
+  text-shadow: 0 0 15px #9591bd;
+  margin-bottom: 0;
   }
 
-  h2 {
-    font-family: "IBM Plex Mono", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 0.9rem;
-    color: #bcced6;
-    text-shadow: 0 0 15px #9591bd;
-    text-align: center;
-    margin-top: 0;
+h2 {
+  font-size: 0.9rem;
+  margin-top: 0;
   }
-}
 
-/*Dialog boxes*/
-.container {
-  padding: 0 2% 0 2%;
-  column-gap: 4%;
-}
+header h1, header h2 {/*scenario pages titles*/
+  text-align: center;
+  }
 
-.dialogs {
-  margin-top: 4%;
-  padding-top: 4%;
-}
-
-@media only screen and (min-width: 992px) {
-.dialogs {
-  padding-top: 0;
-}} 
-
-p.void {
+/*Main characters dialog boxes*/
+p.void, p.chaos {
   position: relative;
   font-family: "IBM Plex Mono", sans-serif;
   font-weight: 600;
   font-style: italic;
   font-size: 0.8rem;
-  color: $accentColor;
   max-width: 75%;
   width: fit-content;
-  padding: 2%;
   margin-top: 0;
-  border: 1px solid $textColor;
+  padding: 2%;
+  border: 1px solid #002266;
+  border-radius: 15px;
+  }
+
+p.void {/*Void*/
+  color: #fcffa2;
   outline: 2px solid #cfd18c;
   text-shadow: 0 0 10px #cfd18c;
-  border-radius: 15px;
   background-color: rgba(252, 255, 162, 0.2);
-}
+  }
 
-p.chaos {
-  position: relative;
-  font-family: "IBM Plex Mono", sans-serif;
-  font-weight: 600;
-  font-style: italic;
-  font-size: 0.8rem;
-  color: #eedefc;
-  width: fit-content;
-  padding: 2%;
-  margin-top: 0;
-  max-width: 75%;
+p.chaos {/*Chaos*/
   align-self: flex-end;
-  border: 1px solid $textColor;
+  color: #eedefc;
   outline: 2px solid #d7c8e6;
   text-shadow: 0 0 10px #d7c8e6;
-  border-radius: 15px;
   background-color: rgba(164, 130, 196, 0.7);
-}
+  }
 
 /*Define pseudo element for each characters*/
-.void::before {
-  content: "Void";
+.void::before, .chaos::before {
   position: absolute;
   top: -1.8em;
   font-weight: 300;
-}
+  }
+
+.void::before {
+  content: "Void";
+  }
 
 .chaos::before {
   content: "Chaos";
-  position: absolute;
-  top: -1.8em;
   right: 0;
-  font-weight: 300;
-}
+  }
 
 /*Hide pseudo element if adjacent sibling is from the same class*/
 .void + .void::before,
 .chaos + .chaos::before {
   display: none;
-}
+  }
 
+/*Image borders*/
 img.avatarLeft, img.avatarLeftEnd, img.avatarRight, img.avatarRightEnd {
   object-fit: cover;
   border-radius: 15px;
-}
+  }
 
 img.avatarLeft, img.avatarLeftEnd {
-  border: 2px solid $accentColor; 
-}
+  border: 2px solid #fcffa2; 
+  }
 
 img.avatarRight, img.avatarRightEnd {
   border: 2px solid #d66676; 
-}
+  }
+
 /*Edge menu*/
 #openOverlay, #nerdBlue {
   background-color: rgb(240, 250, 107);
-}
+  }
 
 #nerdYellow {
   background-color: rgba(252, 255, 162, 0.5);
-}
+  }
 
 #closeOverlay {
   background-color: rgba(214, 102, 118, 0.5);
-}
+  }
 
 #openOverlay, #nerdBlue, #nerdYellow, #closeOverlay {
   position: fixed;
   border: none;
   border-radius: 15px;
-}
+  }
 
-nav {
-  ul {
-    font-family: "IBM Plex Mono", sans-serif;
-    font-weight: 500;
-    font-style: normal;
-    font-size: 0.9rem;
-    text-shadow: 0 0 15px #9591bd;
+/*Navigation menu formating*/
+nav ul {
+  font-family: "IBM Plex Mono", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 0.9rem;
+  text-shadow: 0 0 15px #9591bd;
+  }
 
+nav li::marker {
+  content: "+-";
+  color: #e8f8ff;
   }
-  li::marker {
-    content: "+-";
-    color: #e8f8ff;
-  }
-  li {
-    padding-left: 2%;
-  }
-  a {
-    color: #e8f8ff;
-  }
-}
 
-/*Buttons*/
+nav li {
+  padding-left: 2%;
+  }
+
+nav a {
+  color: #e8f8ff;
+  }
+
+/*Next and previous buttons*/
 .previous, .next {
   font-family: "IBM Plex Mono", sans-serif;
   font-weight: 400;
@@ -165,66 +136,47 @@ nav {
   text-align: center;
   background-color: rgba(195, 158, 255, 0.7);
   border-radius: 9px;
-} 
+  } 
 
-/*Main content formating*/
-main {
-  font-family: "Barlow", sans-serif;
-  font-weight: 400;
-  font-style: normal; 
-  padding: 0 2% 0 2%;
-
-  h1, h2{
-    font-family: "IBM Plex Mono", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    color: #bcced6;
-    text-shadow: 0 0 15px #9591bd;
-    margin-bottom: 0;
-  }
-
-  p, li {
-    font-family: "IBM Plex Mono", sans-serif;
-    font-weight: 500;
-    font-style: italic;
-    font-size: 0.8rem;
-    color: #e8f8ff;
-    padding-left: 2%;
+/*Default page formating*/
+p, li {
+  font-family: "IBM Plex Mono", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 0.8rem;
+  color: #e8f8ff;
+  padding-left: 2%;
   }
 
 li {
   list-style-position: inside;
-}
-  
-  a {
-    color: $accentColor;
   }
 
-  .comment {
-    color: #697185;
-    text-shadow: none;
-  }
+/*Code block*/ 
+pre {
+  border-left: 3px solid #697185 ;
+  padding-left: 2%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.3), transparent);
+  overflow-x: auto;
+  } 
   
-  .message {
-    color: #697185;
-    text-shadow: none;
-  }
- 
-  code {
-    font-family: "IBM Plex Mono", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    font-size: 0.8rem;
-    color: #f0fa6b;
+code {
+  font-family: "IBM Plex Mono", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 0.8rem;
+  color: #f0fa6b;
+  text-shadow: 0 0 10px #cfd18c;
   }
 
-  pre {
-    border-left: 3px solid #697185 ;
-    padding-left: 2%;
-    padding-top: 2%;
-    padding-bottom: 2%;
-    text-shadow: 0 0 10px #cfd18c;
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.3), transparent);
-    overflow-x: auto;
+.comment {
+  color: #697185;
+  text-shadow: none;
   }
-}
+  
+.message {
+  color: #697185;
+  text-shadow: none;
+  }

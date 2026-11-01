@@ -2,82 +2,80 @@
 @import 'fontClasses';
 @import 'styling';
 
-/*Variables*/
-/*$backgroundColor: linear-gradient(#272442, #272442);*/
-$backgroundColor: linear-gradient(#94A1C1, #94A1C1);
-$bodyColor: #000000;
-
+/*General settings*/
 :root {
 --buttonGap: 1vh;
 --frameWidth: 95vw;
-}
+  }
 
-/*General settings*/
 body {
   min-height: 100dvh;
-  background: $backgroundColor;
-  color: $bodyColor;
+  background: linear-gradient(#94A1C1, #94A1C1); 
   margin: 0;
-}
+  }
 
-/*Frame and container layout*/
-.frame {
+/*Main layout*/
+.frame {/*frame inside body*/
   width: var(--frameWidth);
   margin: auto;
   display: grid;
   grid-template-columns: repeat(24, 1fr);
-}
+  }
 
-.container {
-  grid-column: 2 / 25;
+.container {/*container inside frame*/
   display: grid;
   grid-template-columns: 1fr 1fr;
-}
+  column-gap: 4%;
+  }
 
-header, main {
-  grid-column: 2 / 25;
-}
+header, main, .container {
+  grid-column: 2 / 25;/*leave space for edge menu*/
+  padding: 0 2% 0 2%;
+  }
 
 header {
   height: calc(20vh - var(--buttonGap));
-}
+  }
 
 /*Dialog boxes*/
-.avatarLeft, .avatarLeftEnd, .avatarRight, .avatarRightEnd {
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-}
-
-.avatarLeft {
-  grid-column: 1 / 2;  
-  grid-row: 1 / 2;
-}
-
-.avatarLeftEnd {
-  grid-column: 1 / 2;  
-  grid-row: 3 / 4;
-}
-
-.avatarRight {
-  grid-column: 2 / 3;  
-  grid-row: 1 / 2;
-}
-
-.avatarRightEnd {
-  grid-column: 2 / 3;  
-  grid-row: 3 / 4;
-}
-
-.dialogs {
+.dialogs {/*dialogs inside container*/
   grid-column: 1 / 3;
   grid-row: 2 / 3;
   display: flex;
   flex-direction: column;
-} 
+  margin-top: 4%;
+  padding-top: 4%;
+  }
+
+/*Characters images*/ 
+.avatarLeft, .avatarLeftEnd, .avatarRight, .avatarRightEnd {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  }
+
+.avatarLeft {
+  grid-column: 1 / 2;  
+  grid-row: 1 / 2;
+  }
+
+.avatarLeftEnd {
+  grid-column: 1 / 2;  
+  grid-row: 3 / 4;
+  }
+
+.avatarRight {
+  grid-column: 2 / 3;  
+  grid-row: 1 / 2;
+  }
+
+.avatarRightEnd {
+  grid-column: 2 / 3;  
+  grid-row: 3 / 4;
+  }
 
 /*Edge menu*/
-.overlay {
+.overlay {/*navigation menu layer*/
   display: none;
   position: fixed;
   top: 0;
@@ -89,188 +87,182 @@ header {
   margin: auto;
   z-index: 1;
   backdrop-filter: blur(5px);
-}
- 
+  }
+
 .overlay.active {
   width: 95%;
   display: grid;
   grid-template-columns: repeat(24, 1fr);
   overflow-y: auto;
-}
+  }
 
-.content-section {
+.content-section {/*content section inside overlay*/
   grid-column: 2 / 25;
   background-color: rgba(148, 161, 193, 0.5);
-}
+  }
 
-body.menu-open {
+body.menu-open {/*fix the position of the body when navigation layer is visible*/
   overflow: hidden;
-}
+  }
 
-/*Edge buttons*/
+/*Edge buttons dimensions*/
 #openOverlay {
   top: calc(20vh - var(--buttonGap));
   height: calc(60vh + (var(--buttonGap) * 2));
   left: calc((100vw - var(--frameWidth)) / 2);
   width: calc(var(--frameWidth) / 24); 
-}
+  }
 
 #nerdBlue {
   top: calc(20vh - var(--buttonGap));
   height: calc((100vh - 40vh) / 3);
   left: 0vw;
   width: calc(var(--frameWidth) / 24); 
-}
+  }
 
 #nerdYellow {
   top: 40vh;
   height: calc((100vh - 40vh) / 3);
   left: 0vw;
   width: calc(var(--frameWidth) / 24); 
-}
+  }
 
 #closeOverlay {
   top: calc(60vh + var(--buttonGap));
   height: calc((100vh - 40vh) / 3);
   left: 0vw;
   width: calc(var(--frameWidth) / 24); 
-}
+  }
 
-/*Buttons*/
+/*Next and previous buttons*/
 .previous {
   margin-top: 5vh;
   margin-bottom: 5vh;
   grid-column: 1 / 2;
   grid-row: 3 / 4; 
-}
+  }
 
 .next {
   margin-top: 5vh;
   margin-bottom: 5vh;
   grid-column: 2 / 3;
   grid-row: 3 / 4;
-}
+  }
 
 /*Display classes*/
 .hidden, .content-section {
   display: none;
-}
+  }
 
 .content-section.active {
   display: block;
-}
+  }
 
-/*Media queries*/
-/*Small screens*/
+/*Media queries small screens*/
 @media only screen and (min-width: 600px) {
 :root {
---frameWidth: 85vw;
-}
+  --frameWidth: 85vw;
+  }
 
 .frame {
   width: var(--frameWidth);
-}
+  }
 
 .overlay, .overlay.active {
   width: var(--frameWidth);
-}
-}
+  }}
 
-/*Medium screens*/
+/*Media queries for medium screens*/
 @media only screen and (min-width: 768px) {
 :root {
---frameWidth: 75vw;
-}
+  --frameWidth: 75vw;
+  }
 
 .frame {
   width: var(--frameWidth);
-}
-/*Edge menu*/
+  }
+
 .overlay, .overlay.active {
   width: var(--frameWidth);
-}
+  }
 
 #openOverlay {
   left: calc((100vw - var(--frameWidth)) / 2);
   width: calc(var(--frameWidth) / 24);
-}}
+  }}
 
-/*Large screens*/
+/*Media query for large screens*/
 @media only screen and (min-width: 992px) {
 :root {
---frameWidth: 70vw;
-}
+  --frameWidth: 70vw;
+  }
 
 .frame {
   width: var(--frameWidth);
-}
+  }
 
-/*Dialog box*/
 .container {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-}
+  }
 
 .avatarLeft {
   grid-column: 1 / 2;  
   grid-row: 1 / 2;
-}
+  }
 
 .avatarLeftEnd {
   grid-row: 2 / 3;
-}
+  }
  
 .avatarRight {
   grid-column: 3 / 4;  
   grid-row: 1 / 2;
-}
+  }
 
 .avatarRightEnd {
   grid-column: 3 / 4;  
   grid-row: 2 / 3;
-}
+  }
 
 .dialogs {
   grid-column: 2 / 3;
   grid-row: 1 / 3;
   display: flex;
   flex-direction: column;
-}
+  }
 
-/*Edge menu*/
 .overlay, .overlay.active {
   width: var(--frameWidth);
-}
+  }
 
 #openOverlay {  
   left: calc((100vw - var(--frameWidth)) / 2);
   width: calc(var(--frameWidth) / 48);
-}
+  }
 
 #nerdBlue {
   height: calc((100vh - 40vh) / 3);
   left: 0vw;
   width: calc(var(--frameWidth) / 48); 
-}
+  }
 
 #nerdYellow { 
   left: 0vw;
   width: calc(var(--frameWidth) / 48); 
-}
+  }
 
 #closeOverlay {
   left: 0vw;
   width: calc(var(--frameWidth) / 48); 
-}
+  }
 
-/*Buttons*/
 .previous {
   grid-column: 1 / 2;
   grid-row: 3 / 4; 
-}
+  }
 
 .next {
   grid-column: 3 / 4;
   grid-row: 3 / 4;
-}
-}
+  }}
