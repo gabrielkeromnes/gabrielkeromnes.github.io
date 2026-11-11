@@ -1,16 +1,25 @@
 /*Titles*/
 h1, h2 {
-  font-family: "IBM Plex Mono", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+  font-family: "Barlow", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   color: #bcced6;
-  text-shadow: 0 0 15px #9591bd;
-  margin-bottom: 0;
+  text-shadow: 0 0 4px #84a1ad;
   }
 
+h1 {
+  font-weight: 300;
+  font-style: italic;
+  font-size: 2.3rem;
+  margin-bottom: 0;
+}
+
 h2 {
-  font-size: 0.9rem;
-  margin-top: 0;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.1rem;
+  margin-top: 1vh;
+  margin-bottom: 0.3vh;
   }
 
 header h1, header h2 {/*scenario pages titles*/
