@@ -1,9 +1,6 @@
 name: Custom deployment
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
 
 permissions:
